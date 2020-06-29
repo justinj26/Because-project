@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_202820) do
+
+ActiveRecord::Schema.define(version: 2020_06_29_193128) do
+
+  create_table "emoticons", force: :cascade do |t|
+    t.string "image"
+    t.string "name"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -37,8 +43,15 @@ ActiveRecord::Schema.define(version: 2020_06_29_202820) do
     t.text "message"
     t.integer "user_id"
     t.integer "post_id"
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followee_id"
   end
 
   create_table "hash_posts", force: :cascade do |t|
@@ -46,6 +59,12 @@ ActiveRecord::Schema.define(version: 2020_06_29_202820) do
     t.integer "hastag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "name"
+    t.text "bio"
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -58,10 +77,12 @@ ActiveRecord::Schema.define(version: 2020_06_29_202820) do
     t.text "content"
     t.integer "emoji_id"
     t.integer "user_id"
+
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+
 end

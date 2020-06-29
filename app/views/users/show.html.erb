@@ -1,0 +1,17 @@
+<h1>Hi, <%= @user.name %>! </h1>
+
+<p>
+    <!-- Display Image -->
+    Username: <%= @user.username %>
+    Bio: <%= @user.bio %>
+    Account Age: <%= @user.account_age %>
+    Frequented Hashtags: 
+        <!-- Each hashtag should link to hashtag show page -->
+        <% @user.most_used_hashtags.each do |h| %>
+            <%= link_to h.name, h %>
+        <% end %>
+</p>
+
+<h2><%= @user.name %>'s Posts:</h2>
+
+
