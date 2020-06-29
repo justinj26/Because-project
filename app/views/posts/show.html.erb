@@ -1,0 +1,7 @@
+<%= render 'post_info'%>
+
+<% post.comments.each do |comment| %>
+<li><%= comment.message %><li>
+<% end %>
+
+
