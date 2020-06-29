@@ -1,0 +1,11 @@
+<% @hashtag.name %>
+
+<ul>
+<% @hashtag.posts.each do |post| %>
+<!-- Wouldn't let any post be created wihtout content -->
+<%= render 'post_info' %>
+<li><%= link_to(post, post_path(post)) %></li>
+<% end %>
+</ul>
+
+
