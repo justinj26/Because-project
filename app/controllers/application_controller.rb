@@ -4,13 +4,17 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     
     def hello 
-        if session[:username].nil?
-            redirect_to controller: 'sessions', action: 'new'
-        end
+        # # if session[:username].nil?
+        #     redirect_to controller: 'sessions', action: 'new'
+        # end
     end
 
-    def current_user
-        session[:name]
+    # def current_user
+    #     session[:username]
+    # end
+
+    def create
+        redirect_to new_user_path
     end
 
     private

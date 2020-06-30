@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new 
+        @emoticons = Emoticon.all
     end
 
     # probably should use slugs

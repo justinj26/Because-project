@@ -9,6 +9,8 @@ class User < ApplicationRecord
     has_many :comments, through: :posts
     has_many :replies
 
+    has_secure_password
+
     def account_age
     end
 
