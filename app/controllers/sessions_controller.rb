@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
             if @user && @user.authenticate(params[:password])
                 session[:user_id] = @user.id 
                 # session[:username] = params[:username]
-                redirect_to controller: 'users', action: 'show'
+                redirect_to user_path(@user)
             else 
                 # flash[:errors] 
-                redirect_to controller: 'application', action: 'hello'
+                redirect_to controller: 'sessions', action: 'new'
             end
         # end
     end

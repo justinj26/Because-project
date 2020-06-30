@@ -3,11 +3,17 @@ class FollowsController < ApplicationController
     before_action :find_follow, only: [:show, :edit, :update, :destroy]
 
     # shows all of your relationships:followers/following
-    def index
+    def followers 
+        @user = User.find(session[:user_id])
+        @followers = @user.followers 
+        render 'followers'
     end
 
     # shows individual relationship between two users
-    def show
+    def followees
+        @user = User.find(session[:user_id])
+        @followees = @user.followees 
+        render 'followees'
     end
 
     def new
