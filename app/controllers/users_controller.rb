@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
     # not sure if we need an index page to show all the users
@@ -17,6 +16,14 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+            if @user.valid? 
+                @user.save
+                session[:user_id] = @user.id 
+                redirect_to user_path(@user)
+            else
+                # flash[:errors] = @user.errors.full_messages
+                redirect_to new_user_path
+            end
         # needs validations
     end
 
@@ -38,11 +45,11 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :name)
+        params.require(:user).permit(:username, :name, :password, :password_confirmation)
     end
 
     def find_user
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
     end
 
     # maybe have the validation as a spearte method to call instead of putting inside each action
