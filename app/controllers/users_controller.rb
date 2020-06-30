@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
     # profile page
     def show
+        render 'self_show'
+    end
+
+    def foreign_show
+        @user = User.find(params[:id])
     end
 
     def new
