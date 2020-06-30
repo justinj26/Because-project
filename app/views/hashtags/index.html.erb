@@ -1,0 +1,13 @@
+<h1>Hashtags Index</h1>
+
+<ol>
+<%= @hashtag.trending.each do |th| %>
+    <li><%= th %></li>
+<% end %>
+</ol>
+
+<ul>
+<%= @hashtags.each do |h|%>
+    <li><%= h.name %></li>
+<% end %>
+</ul>
