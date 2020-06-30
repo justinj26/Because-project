@@ -4,6 +4,8 @@ class FollowsController < ApplicationController
 
     # shows all of your relationships:followers/following
     def index
+        @user = User.find(session[:user_id])
+        @followers = @user.follows 
     end
 
     # shows individual relationship between two users
