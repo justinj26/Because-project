@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :replies
   resources :emoticons
   resources :follows
   resources :users
