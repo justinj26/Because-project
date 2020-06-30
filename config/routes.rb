@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users
 
   root "application#hello"
+  
+  get '/signup', to: 'users#new'
+  post '/create', to: 'application#create'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -12,5 +15,6 @@ Rails.application.routes.draw do
   resources :hashtags
   resources :comments
   resources :posts
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
