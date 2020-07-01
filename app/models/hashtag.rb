@@ -5,9 +5,9 @@ class Hashtag < ApplicationRecord
 
 
     # finds top tending hashtags 
-    def trending
+    def self.trending
         @hashtags = Hashtag.all 
-        sorted = @hashtags.sort_by(&:posts.count).reverse
+        sorted = @hashtags.sort_by{|hashtag| hashtag.posts.count}.reverse
         sorted[0...4]
     end
   

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
     def index
+        redirect_to user_path(@user)
         @posts = current_user.all_followees_posts
     end
 
