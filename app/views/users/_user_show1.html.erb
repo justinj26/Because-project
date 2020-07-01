@@ -4,7 +4,7 @@
     <!-- Display Image -->
     Username: <%= @user.username %>
     Bio: <%= @user.bio %>
-    Account Age: <%= @user.account_age %>
+    <%= @user.account_age %>
     Frequented Hashtags: 
         <!-- Each hashtag should link to hashtag show page -->
         <% @user.most_used_hashtags.each do |h| %>
