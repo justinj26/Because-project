@@ -1,15 +1,1 @@
-<h1>Create New Post </h1>
-
-<%= <%= form_for @post do |f| %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.label :emoticon %>
-    <%= f.collection_select :emoticon_id, @emoticons, :id, :emoticon.image %>
-
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-
-    <%= f.submit %>
-    
-<% end %>
+<%= render 'new'%>

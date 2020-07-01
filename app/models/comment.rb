@@ -4,6 +4,6 @@ class Comment < ApplicationRecord
     has_many :replies 
 
     validates :message, presence: true
-    validates :message, lengtth: { minimum: 250 }, unless: -> { message.include?('?')}
+    validates :message, length: { minimum: 250 }, unless: -> { message.include?('?')}
 
 end

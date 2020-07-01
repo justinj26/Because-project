@@ -15,8 +15,12 @@ class PostsController < ApplicationController
     end
 
     def create
+        byebug
+        if params[:image]
          image = Cloudinary::Uploader.upload(params[:image])
-        current_user.posts.build(post_params)
+        end
+        post = Post.create(post_params)
+        current_user.posts << post 
         redirect_to user_path(current_user)
     end
 

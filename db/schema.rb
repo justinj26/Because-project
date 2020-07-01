@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_214525) do
+
+ActiveRecord::Schema.define(version: 2020_07_01_182533) do
+
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_06_30_214525) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
-    t.integer "emoji_id"
+    t.integer "emoticon_id"
     t.integer "user_id"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false

@@ -9,11 +9,14 @@ class UsersController < ApplicationController
 
     # profile page
     def show
+        @post = Post.new
+        @emoticons = Emoticon.all 
         render 'self_show'
     end
 
     def foreign_show
         @user = User.find(params[:id])
+        render 'foreign_show'
     end
 
     def new
