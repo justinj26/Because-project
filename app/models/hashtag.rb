@@ -4,6 +4,10 @@ class Hashtag < ApplicationRecord
     has_many :posts, through: :hash_posts 
 
     validates :name, presence: :true
+
+    # def priority_hastags
+        
+    # end
     
 
 end
