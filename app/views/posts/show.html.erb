@@ -1,7 +1,7 @@
 <%= render 'post_info'%>
 
 <%= form_with model: { comment: Comment.new } do |f| %>
-<%= f.input %>
+<%= f.input :message %>
 <% f.submit 'comment' %>
 <% end %>
 
