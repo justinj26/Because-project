@@ -6,6 +6,8 @@ class User < ApplicationRecord
     has_many :followers, through: :following_users
 
     has_many :posts
+    has_many :hash_posts, through: :posts
+    has_many :hashtags, through: :hash_posts
     has_many :comments, through: :posts
     has_many :replies
 
@@ -28,7 +30,29 @@ class User < ApplicationRecord
 
     # displays the users most used hashtags on users/show
     def most_used_hashtags
-        
+        # my_tags = self.hashtags.each do |hashtag|
+        #     hashtag.posts.select do |post|
+        #         post.user_id == self 
+        #     end
+        # end 
+        my_tags = []
+        self.posts.each do |post|
+            my_tags << post.hashtags
+        end
+        flattened = my_tags.flatten
+        tallied = Hash[flattened.group_by{|x|x}.map{|x,y|[x,y.size]}]
+        # sorted.each do |hashtag|
+        #     # need to associate hashtag w it's count
+            
+        #     # gives number of times hashtag appears in sorted list
+        #     sorted.find_all[hashtag].count 
+        # end
+        tallies_sorted = tallied.sort_by{|x,y| y}.reverse
+        my_most = tallies_sorted[0..4]
+        most_used = my_most.map do |array|
+            array[0]
+        end
+        most_used
     end
 
     def posts_in_order
