@@ -1,0 +1,15 @@
+<h1>Hashtags Index</h1>
+
+<h2>Top 5 Trending Hashtags:</h2>
+<ol>
+<%= @hashtags.trending.each do |th| %>
+    <li><%= link_to th, th %></li>
+<% end %>
+</ol>
+
+<h2>All Hashtags:</h2>
+<ul>
+<%= @hashtags.sort.each do |h|%>
+    <li><%= link_to h.name, h %></li>
+<% end %>
+</ul>
