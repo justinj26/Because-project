@@ -1,0 +1,11 @@
+<h1>Welcome to Because!</h1>
+
+Make a post 
+
+<% form_tag new_post_path %>
+
+<% @posts.each do |post| %>
+
+<%= render 'post_info' %>
+
+<% end %>

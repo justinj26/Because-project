@@ -1,6 +1,7 @@
 class FollowsController < ApplicationController
 
     before_action :find_follow, only: [:show, :edit, :update, :destroy]
+    
 
     # shows all of your relationships:followers/following
     def followers 
@@ -17,24 +18,30 @@ class FollowsController < ApplicationController
     end
 
     def new
-        @follow = Follow.new
+        # @follow = Follow.new
+        # Make sure validations still work as if a follow was a user
+        # @user = User.find(session[:user_id])
+        # @user.follows.build(follower_id: @user.id, followee_id: params[:id])
+        # redirect_to 
     end
 
     # creates new relationship(following/followed by new user)
-    def create
-        @follow.new(follow_params)
-        redirect_to follows_path
+    def update 
+        # @follow.new(follow_params)
+        @user = User.find(session[:user_id])
+        @user.follows.build(follower_id: @user.id, followee_id: params[:id])
+        redirect_to followees_path
         # needs validation 
     end
 
     def edit
     end
 
-    def update
-        @follow.update(follow_params)
-        redirect_to follow_path
-        # needs validation
-    end
+    # def update
+    #     @follow.update(follow_params)
+    #     redirect_to follow_path
+    #     # needs validation
+    # end
 
     def destroy
         @follow.delete

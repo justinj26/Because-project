@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+    def index
+        @posts = current_user.all_followee_posts
+    end
+
     def new
         @post = Post.new 
         @emoticons = Emoticon.all
@@ -7,15 +11,28 @@ class PostsController < ApplicationController
 
     # probably should use slugs
     def show
-        @post = Post.find(params[:id])
+        
     end
 
     def create
+        current_user.posts.build(post_params)
+
     end
 
     def destroy
         Post.delete(params[:id])
     end
+
+    private
+
+    def find_user
+
+    end
+
+    def post_params
+        params.require(:post).permit(:content, :emoticon, :image)
+    end
+
 
     
 

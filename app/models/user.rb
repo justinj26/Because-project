@@ -20,4 +20,18 @@ class User < ApplicationRecord
     def posts_in_order
         posts.sort_by(&:created_at).reverse
     end
+
+    def all_followees_posts 
+        all_followee_posts = []
+        self.followees.each do |followee|
+            followee.posts.each do |post|
+                all_followee_posts << post 
+            end
+        end
+        all_followee_posts  
+    end
+
+    def feed 
+        all_followee_posts.sort_by(&:created_at).reverse
+    end
 end

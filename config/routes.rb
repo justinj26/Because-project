@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :replies
   resources :emoticons
   resources :follows
+  get '/followers', to: "follows#followers"
+  get '/followees', to: "follows#followees"
+
   resources :users
 
   root "application#hello"
