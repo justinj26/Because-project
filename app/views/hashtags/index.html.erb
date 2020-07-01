@@ -2,14 +2,14 @@
 
 <h2>Top 5 Trending Hashtags:</h2>
 <ol>
-<%= @hashtags.trending.each do |th| %>
-    <li><%= link_to th, th %></li>
+<% @trending_hashtags.each do |hashtag| %>
+    <li><%= link_to hashtag.name, hashtag_path(hashtag) %></li>
 <% end %>
 </ol>
 
 <h2>All Hashtags:</h2>
 <ul>
-<%= @hashtags.sort.each do |h|%>
-    <li><%= link_to h.name, h %></li>
+<% @hashtags.sort.each do |hashtag|%>
+    <li><%= link_to hashtag.name, hashtag_path(hashtag) %></li>
 <% end %>
 </ul>
