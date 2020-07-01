@@ -1,0 +1,6 @@
+<h1>Here are all of the people who follow you!</h1>
+
+<% @user.followees.each do |followee| %>
+<li><%%= followee.image ><%= followee.name %></li>
+
+<% end %>

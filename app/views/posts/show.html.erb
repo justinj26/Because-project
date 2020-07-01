@@ -1,7 +1,18 @@
 <%= render 'post_info'%>
 
+<%= form_with model: { comment: Comment.new } do |f| %>
+<%= f.input %>
+<% f.submit 'comment' %>
+<% end %>
+
 <% post.comments.each do |comment| %>
-<li><%= comment.message %><li>
+<li><%= comment.message %><br/>
+    <%= form_with model: { reply: Reply.new } do |f| %>
+    <%= f.input :content %>
+    <%= f.submit 'reply' %>
+    <% end %>
+><li>
+
 <% end %>
 
 
