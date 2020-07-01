@@ -1,5 +1,7 @@
-<%= render 'user_show' %>
+<%= render 'user_show1' %>
 
 <%= form_tag ({controller: 'follows', method: 'put', action: 'update'}) do %>
 <input type='submit' value="Follow">
 <% end %>
+
+<%= render 'user_show2' %>

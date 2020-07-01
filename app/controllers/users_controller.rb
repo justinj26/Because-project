@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
+    skip_before_action :current_user, only: [:new, :create]
 
     # not sure if we need an index page to show all the users
     def index
