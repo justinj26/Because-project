@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index
-        @posts = current_user.all_followee_posts
+        @posts = current_user.all_followees_posts
     end
 
     def new
