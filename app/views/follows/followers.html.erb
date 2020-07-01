@@ -1,6 +1,6 @@
 <h1>Here's all of your followers!</h1>
 
 <% @user.followers.each do |follower| %>
-<li><%= follower. %></li>
+<li><% if follower.image %><% follower.image %><% end %><%= follower.name %></li>
 
 <% end %>

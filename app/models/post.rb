@@ -6,4 +6,7 @@ class Post < ApplicationRecord
     has_many :hashtags, through: :hash_posts 
 
     has_one_attached :image 
+
+    validates :content, presence: true 
+    validates :content, length: { minimum: 250 }, unless: -> { content.include?('?')}
 end

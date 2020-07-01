@@ -1,3 +1,5 @@
 <%= render 'user_show' %>
 
-button for follow someone
+<%= form_tag ({controller: 'follows', method: 'put', action: 'update'}) do %>
+<input type='submit' value="Follow">
+<% end %>
