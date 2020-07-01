@@ -6,9 +6,9 @@ class User < ApplicationRecord
     has_many :followers, through: :following_users
     has_many :posts
     has_many :hash_posts, through: :posts
-    has_many :hashtags, through: :hash_posts
+    has_many :hashtags, through: :hash_posts, source: 
     has_many :comments, through: :posts
-    has_many :replies
+    has_many :replies, through: :comments
 
     # validations
     validates :username, presence: true, uniqueness: {case_sensitive: true} 
