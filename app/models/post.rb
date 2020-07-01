@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
     belongs_to :user
+    belongs_to :emoticon
     has_many :comments
     has_many :replies, through: :comments 
     has_many :hash_posts

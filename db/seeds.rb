@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all 
 Post.destroy_all 
 Comment.destroy_all
 Hashtag.destroy_all
 HashPost.destroy_all
+Emoticon.destroy_all 
 
 e1 = Emoticon.create(name:"love", image:"(ɔ◔‿◔)ɔ ♥")
 e2 = Emoticon.create(name:"flipping table", image:"┻━┻ ︵ヽ(`▭´)ﾉ︵﻿ ┻━┻")
@@ -41,23 +43,28 @@ e27 = Emoticon.create(name:"sleeping", image:"(＿ ＿*) Z z z")
 e28 = Emoticon.create(name:"cat", image:"(^◕ᴥ◕^)")
 e29 = Emoticon.create(name:"dog", image:"V●ᴥ●V")
 e30 = Emoticon.create(name:"rabbit", image:"／(=´x`=)＼")
+# capitalize names before creation
+u1 = User.create(username: 'tt21', name: "tiny tim", password_digest: BCrypt::Password.create('Your_Password'))
+u2 = User.create(username: 'm3do', name: "megasho", password_digest: BCrypt::Password.create('Your_Password'))
+u3 = User.create(username: 'pb97', name: "Prinner", password_digest: BCrypt::Password.create('Your_Password'))
+u4 = User.create(username: 'ds09', name: 'Daisy', password_digest: BCrypt::Password.create('Your_Password'))
 
-post1 = Post.create(content: "Wow, this is my first post", emoticon_id: , image_id: )
-post2 = Post.create(content: "Wow, this is my second post", emoticon_id: , image_id: )
-post3 = Post.create(content: "Wow, this is my third post", emoticon_id: , image_id: )
-post4 = Post.create(content: "Wow, this is my fourt post", emoticon_id: , image_id: )
+post1 = Post.create(content: "Wow, this is my first post", emoticon_id: Emoticon.first.id, user_id: User.first.id)
+post2 = Post.create(content: "Wow, this is my second post", emoticon_id: Emoticon.second.id, user_id: User.first.id)
+post3 = Post.create(content: "Wow, this is my third post", emoticon_id: Emoticon.last.id, user_id: User.third.id)
+post4 = Post.create(content: "Wow, this is my fourt post", emoticon_id: Emoticon.third.id, user_id: User.last.id)
 
-comment1 = Comment.create(message: "Oh my gosh, did you see what was said, that was so thoughtful!", post_id: post4.id)
-comment2 = Comment.create(message: "I really like how they structured out that argument, so organize.", post_id: post2.id)
-comment3 = Comment.create(message: "I think the reason for that is to find a closer meaning in life", post_id: post1.id)
+comment1 = Comment.create(message: "Oh my gosh, did you see what was said, that was so thoughtful!", post_id: Post.third.id, user_id: User.first.id)
+comment2 = Comment.create(message: "I really like how they structured out that argument, so organize.", post_id: Post.second.id, user_id: User.second.id)
+comment3 = Comment.create(message: "I think the reason for that is to find a closer meaning in life", post_id: Post.first.id, user_id: User.third.id)
 
 h1 = Hashtag.create(name: "Because_ilikeit")
 h2 = Hashtag.create(name: "Because_whynot")
 h3 = Hashtag.create(name: "Because_yes")
 
-hp1 = HashPost.create(post_id: post1.id, hashtag_id: h1.id)
-hp2 = HashPost.create(post_id: post2.id, hashtag_id: h1.id)
-hp3 = HashPost.create(post_id: post3.id, hashtag_id: h2.id)
+hp1 = HashPost.create(post_id: Post.first.id, hashtag_id: Hashtag.third.id)
+hp2 = HashPost.create(post_id: Post.second.id, hashtag_id: Hashtag.second.id)
+hp3 = HashPost.create(post_id: Post.third.id, hashtag_id: Hashtag.first.id)
 
 
 

@@ -1,12 +1,14 @@
 class HashtagsController < ApplicationController
 
     def index
-        @hashtags = Hashtag.all 
+        @trending_hashtags = Hashtag.trending
+        @hashtags = Hashtag.all
         
     end
 
     def show
-        @hastag = Hashtag.find(params[:id])
+        @hashtag = Hashtag.find(params[:id])
+        # byebug
     end
 
     def new
@@ -15,7 +17,7 @@ class HashtagsController < ApplicationController
     def create
     end
 
-    def 
+
 
 
 end
