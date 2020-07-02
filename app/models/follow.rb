@@ -6,7 +6,7 @@ class Follow < ApplicationRecord
     # validations
     validates :follower_id, presence: true
     validates :followee_id, presence: true
-    validates :already_follow
+    # validates :already_follow
 
     # # check if relationship exists
     # def already_following?(follower_id, followee_id)

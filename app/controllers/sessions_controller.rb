@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-    skip_before_action :current_user, only: [:create, :new]
-
+    
+    skip_before_action :current_user, only: [:new, :create]
+    
     def new
         
     end
