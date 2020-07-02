@@ -1,10 +1,12 @@
 <h2><%= @user.name %>'s Posts:</h2>
 <ul>
     <% @user.posts.each do |post| %>
+
     <li><%= link_to(post.content, post_path(post)) %></li>
 
 <li><% if post.image %><%= post.image %><% end %></li>
 <li><% if post.emoticon %><%= post.emoticon.image %><% end %></li>
 <li><% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %></li>
+
     <% end %>
 </ul>

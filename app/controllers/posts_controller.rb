@@ -13,17 +13,20 @@ class PostsController < ApplicationController
     end
 
     # probably should use slugs
+
     def show
         @comment = Comment.new
         @reply = Reply.new 
+
     end
 
     def create
-        byebug
+        # byebug
         if params[:image]
          image = Cloudinary::Uploader.upload(params[:image])
         end
         post = Post.create(post_params)
+        byebug
         current_user.posts << post 
         redirect_to user_path(current_user)
     end
@@ -34,16 +37,13 @@ class PostsController < ApplicationController
 
     private
 
+
     def find_post
         @post = Post.find(params[:id])
     end
 
     def post_params
-        params.require(:post).permit(:content, :emoticon, :image['url'])
+        params.require(:post).permit(:content, :emoticon_id, :user_id, :image)
     end
-
-
-    
-
 
 end
