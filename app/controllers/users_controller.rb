@@ -19,6 +19,8 @@ class UsersController < ApplicationController
         render 'foreign_show'
     end
 
+    
+
     def new
         @user = User.new
     end

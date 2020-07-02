@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+    before_action :find_post, only: [:show]
+
     def index
         redirect_to user_path(@user)
         @posts = current_user.all_followees_posts
@@ -11,7 +13,11 @@ class PostsController < ApplicationController
     end
 
     # probably should use slugs
-    def show 
+
+    def show
+        @comment = Comment.new
+        @reply = Reply.new 
+
     end
 
     def create
@@ -31,7 +37,9 @@ class PostsController < ApplicationController
 
     private
 
-    def find_user
+
+    def find_post
+        @post = Post.find(params[:id])
     end
 
     def post_params

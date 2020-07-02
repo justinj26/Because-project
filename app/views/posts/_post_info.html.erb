@@ -1,4 +1,4 @@
 <li><%= post.content %></li>
 <li><% if post.image %><%= post.image %><% end %></li>
-<li><% if post.emoji %><%= post.emoji %><% end %></li>
-<li><% if post.user %><%= link_to(post.user, user_path(post.user)) %><% end %></li>
+<li><% if post.emoticon %><%= post.emoticon.image %><% end %></li>
+<li><% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %></li>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/followees', to: "follows#followees"
 
   resources :users
+  get '/profile_page/:username', to: 'users#foreign_show', as: 'profile'
 
   root "application#hello"
   
