@@ -1,18 +1,47 @@
-<%= render 'post_info'%>
+<ul>
+<% if @post.user_image %><% if @post.user == @user %><% link_to(@post.user_image, user_path(@post.user)) %><% else %><%= link_to(@post.user_image, profile_path(@post.user))%><% end %><% end %>
+<li><% if @post.user == @user %><%= link_to(@post.user_name, user_path(@post.user)) %><% else %><%= link_to(@post.user_name, profile_path(@post.user))%><% end %></li><br/>
+<li><%= @post.content %></li>
+<li><% if @post.image %><%= @post.image %><% end %></li>
+<li><% if @post.emoticon %><%= @post.emoticon_image %><% end %></li>
+<br/>
 
-<%= form_with model: { comment: Comment.new } do |f| %>
-<%= f.input :message %>
-<% f.submit 'comment' %>
+<% if @user.image %><%= link_to(@user.image, user_path(@user)) %><% end %>
+<%= link_to(@user.name, user_path(@user)) %><br/>
+<%= form_with model: @comment do |f| %>
+<%= f.label :comment %>
+<%= f.text_area :message %><br/>
+<%= f.label :hashtag %>
+<%= f.text_field :hashtag %>
+<input type=hidden name=comment[post_id] value='<%= @post.id %>'>
+<input type=hidden name=comment[user_id] value='<%= @user.id %>'>
+
+<%= f.submit 'Comment!' %>
 <% end %>
+<br/>
+<p>Comments:<p>
+<% @post.comments.each do |comment| %>
+<br/>
+<li><% if comment.user_image %><%= comment.user_image %><% end %>
+<% if comment.user == @user %><%= link_to(comment.user_name, user_path(comment.user)) %><% else %><%= link_to(comment.user_name, profile_path(comment.user))%><% end %>
+</li>
+<%= comment.message %>
 
-<% post.comments.each do |comment| %>
-<li><%= comment.message %><br/>
-    <%= form_with model: { reply: Reply.new } do |f| %>
-    <%= f.input :content %>
+    
+    <%= form_with model: @reply do |f| %>
+    <%= f.text_area :content %>
+    <input type=hidden name=reply[post_id] value='<%= @post.id %>'>
+    <input type=hidden name=reply[comment_id] value='<%= comment.id %>'>
+    <input type=hidden name=reply[user_id] value='<%= @user.id %>'>
     <%= f.submit 'reply' %>
     <% end %>
-<li>
-
+    Replies:
+    <% comment.replies.each do |reply| %></p>
+    <% if reply.user == @user %><%= link_to(reply.user_name, user_path(reply.user)) %><% else %><%= link_to(reply.user_name, profile_path(reply.user))%><% end %>
+    <% if reply.user == @user %><% link_to(reply.user_image, user_path(reply.user)) %><% else %><%= link_to(reply.user_image, profile_path(reply.user))%><% end %>
+    <br/>
+    <%= reply.content %>
+    <% end %><br/>
 <% end %>
-
+</ul>
 
