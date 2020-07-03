@@ -4,10 +4,11 @@
     <%= f.label :content %> 
     <%= f.text_area :content, placeholder: 'Minimum 250 characters, and includes "because", "reason", or "why", or has a ?' %>
 <br>
-
+<br>
     <%= f.label :emoticon %>
     <%= f.collection_select :emoticon_id, @emoticons, :id, :image %>
-<br>
+ 
+<br/>
     <%= f.label :image %>
     <%= f.file_field :image %>
 <br>

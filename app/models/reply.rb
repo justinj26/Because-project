@@ -5,7 +5,7 @@ class Reply < ApplicationRecord
 
     validates :content, presence: true 
     validates :content, length: { minimum: 250 }, unless: -> { content.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."
-    validates :content, inclusion: { in: %w(becasue reason why), unless: -> { content.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."}
+    validates :content, inclusion: { in: %w(because reason why), unless: -> { content.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."}
 
     def reply_age
         days = DateTime.now.mjd - created_at.to_date.mjd 
