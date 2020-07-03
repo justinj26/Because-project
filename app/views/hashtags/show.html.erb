@@ -1,16 +1,14 @@
-<h1><%= "##{@hashtag.name}" %></h1>
+<h1><%= @hashtag.name %></h1>
 
 <ul>
 <% @hashtag.posts.each do |post| %>
 <!-- Wouldn't let any post be created wihtout content -->
 <!-- post info was here-->
-<h3><%= link_to(post.content, post_path(post)) %></h3>
-
-<% if post.image %><%= link_to(image_tag(post.image), post_path(post)) %><% end %>
-<li><% if post.emoticon %><%= post.emoticon_image %><% end %></li>
-<li><% if post.user %><%= link_to(post.user_name, user_path(post.user)) %><% end %></li>
-
-
+    <h3><%= link_to(post.content, post_path(post)) %></h3>
+    
+    <% if post.image %><%= link_to(image_tag(post.image), post_path(post)) %><% end %>
+    <li><% if post.emoticon %><%= post.emoticon_image %><% end %></li>
+    <li><% if post.user %><%= link_to(post.user_name, user_path(post.user)) %><% end %></li>
 <% end %>
 </ul>
  

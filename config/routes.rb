@@ -17,7 +17,14 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+
+  get '/logout', to: 'application#settings'
   post '/logout', to: 'sessions#destroy'
+
+  get '/profile', to: 'users#show'
+  get '/feed', to: 'users#show'
+  get '/settings', to: 'application#settings'
+
 
   resources :hashtags
   resources :comments

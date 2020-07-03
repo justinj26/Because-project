@@ -1,3 +1,4 @@
+
 # User.create!([
 #   {username: "the_napster", name: "Po", bio: "What a kid, football, would love the chance to see him again", password_digest: "$2a$10$TPzpXjJkby9WRHTE8MkDVegAA/lq8Uj8q1pFdefjTBbrKtSaBsyju"},
 #   {username: "bubs93", name: "Bubbles", bio: "What a beatufiul bublle I can be!", password_digest: "$2a$10$s2mOgczwLmLiugq9Sfbbj.ZdrDxp2/y0ZQyNIDgof.1E1MdJSkqwS"},
@@ -104,3 +105,5 @@
 #   {key: "1i5yckn3seplbt3n02kez707nkle", filename: "a_path.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 96397, checksum: "U/Pdm3hzjcxlqn8KdhyLJw=="},
 #   {key: "30oln21mkfqz7xtxadwxeiiju7tl", filename: "log_cabin.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 420486, checksum: "0oAn6wHxAfGpd8VV1l0zaA=="}
 # ])
+
+  
