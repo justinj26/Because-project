@@ -7,14 +7,16 @@ class Post < ApplicationRecord
     has_many :hashtags, through: :hash_posts 
 
     has_one_attached :image 
-
-    validates :content, presence: true 
-    validates :content, length: { minimum: 250 }, unless: -> { content.include?('?')}
+    
+    validates :content, presence: true, if: :because?, unless: -> { content.include?('?')} 
 
     validates :content, length: { minimum: 250 , unless: -> { content.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."}
-    validates :content, inclusion: { in: %w(becasue reason why), unless: -> { content.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."}
+    
 
 
+    def because?
+        self.content.include?('because') || self.content.include?('reason') || self.content.include?('why') || self.content.include?("Because") || self.content.include?("Reason") || self.content.include?('Why')
+    end
     # fix 
     def post_age
         days = DateTime.now.mjd - created_at.to_date.mjd 
