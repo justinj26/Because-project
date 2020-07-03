@@ -1,9 +1,20 @@
-<h1>Welcome</h1>
-
-<%= form_tag ({controller:'sessions', method:'post', action:'new'}) do %>
-    <input type="submit" value="login">
-<% end %>
-
-<%= form_tag ({controller:'application', method:'post', action:'create'}) do %>
-    <input type="submit" value="signup">
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to Because!</h1>
+                <p class="lead">An app aimed at fostering better online communication</p>
+                <hr class="my-4">
+                <p> Login in to get started or create a new account for free today!</p>
+                <%= form_tag ({controller:'sessions', method:'post', action:'new'}) do %>
+                    <input type="submit" value="login" class="btn btn-primary">
+                <% end %>
+                <br>
+        
+                <%= form_tag ({controller:'application', method:'post', action:'create'}) do %>
+                    <input type="submit" value="signup" class="btn btn-primary">
+                <% end %>
+            </div>
+        </div>
+    </div>  
+</div> 

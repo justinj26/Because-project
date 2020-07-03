@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   resources :follows
   get '/followers', to: "follows#followers"
   get '/followees', to: "follows#followees"
-
+  
   resources :users
   # get '/profile_page/:id', to: 'users#foreign_show', as: 'profile'
 
   root "application#hello"
-  
+  get '/foregin_show/:id', to: "users#foreign_show", as: 'foreign'
   get '/signup', to: 'users#new'
   post '/create', to: 'application#create'
 

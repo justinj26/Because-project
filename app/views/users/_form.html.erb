@@ -6,27 +6,39 @@
     </ul>
 <% end %>
 
-<%= form_for @user do |f|%>
+<form>
+    <div class="form-group">
+            <%= form_for @user do |f|%>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br/>
+                <%= f.label :name %>
+                <%= f.text_field :name %><br/>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %><br/>
+                <%= f.label :username %>
+                <%= f.text_field :username %><br/>
 
-    <%= f.label :bio %>
-    <%= f.text_area :bio %><br/><br/>
+                <%= f.label :bio %>
+                <%= f.text_area :bio %><br/><br/>
 
-    <%= f.label :image %>
-    <%= f.file_field :image %><br/>
+                <%= f.label :image %>
+                <%= f.file_field :image %><br/>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br/>
+                <%= f.label :password %>
+                <%= f.password_field :password %><br/>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br/>
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation %><br/>
 
-    <%= f.submit class:"btn btn-primary"%>
+                <%= f.submit class:"btn btn-primary"%>
+            <% end %>
+    </div>
+</form>
 
-
-<% end %>
+<!--
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+</div>
+<div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+-->
