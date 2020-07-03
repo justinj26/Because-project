@@ -10,8 +10,10 @@ class User < ApplicationRecord
     has_many :comments, through: :posts
     has_many :replies, through: :comments
 
+    has_one_attached :image 
+
     # validations
-    validates :username, presence: true, uniqueness: {case_sensitive: true} 
+    validates :username, presence: true, uniqueness: {case_sensitive: true, message: "username must be unique, this one is taken." }
     validates :name, presence: true
     
     has_secure_password
@@ -74,5 +76,9 @@ class User < ApplicationRecord
 
     def feed 
         all_followee_posts.sort_by(&:created_at).reverse
+    end
+
+    def capitalize_profile_name(name)
+        name.split(" ").map(&:capitalize).join(" ")
     end
 end
