@@ -1,3 +1,4 @@
+
 <li><%= post.content %></li>
 
 <li><% if post.image %><%= post.image %><% end %></li>
@@ -8,6 +9,7 @@
 <li><% if post.emoticon %><%= post.emoticon_image %><% end %></li>
 <li><% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %></li>
 
+<!-- taken from post show page
 
 <% if @post.user_image %>
     <% if @post.user == @user %>
@@ -18,4 +20,5 @@
 <% end %> 
 
 <% if @user.image %><%= link_to( image_tag(@user.image), user_path(@user)) %><% end %>
+--> 
 

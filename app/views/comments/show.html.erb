@@ -1,3 +1,16 @@
-<% if @comment.user_image %><%= @comment.user_image %><% end %>
-<% @comment.user_name %>
-<>
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:erros].each do |e| %>
+            <li style="color: red"><%= e %>%</li>
+        <% end %>
+    </ul>
+<% end %>
+
+<p>
+<%= link_to @comment.user_name, user_path%>:
+<% if @comment.user_image %>
+    <%= @comment.user_image %>
+<% end %>
+</p>
+
+

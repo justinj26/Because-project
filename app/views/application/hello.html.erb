@@ -1,9 +1,13 @@
-<h1>Welcome</h1>
+<div class="center_by_text">
+    <h1>Welcome to Because!</h1>
+    <br>
 
-<%= form_tag ({controller:'sessions', method:'post', action:'new'}) do %>
-    <input type="submit" value="login">
-<% end %>
+    <%= form_tag ({controller:'sessions', method:'post', action:'new'}) do %>
+        <input type="submit" value="login" class="btn btn-primary">
+    <% end %>
+    <br>
 
-<%= form_tag ({controller:'application', method:'post', action:'create'}) do %>
-    <input type="submit" value="signup">
-<% end %>
+    <%= form_tag ({controller:'application', method:'post', action:'create'}) do %>
+        <input type="submit" value="signup" class="btn btn-primary">
+    <% end %>
+</div>
