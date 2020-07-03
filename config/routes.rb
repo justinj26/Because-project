@@ -22,12 +22,17 @@ Rails.application.routes.draw do
   get '/logout', to: 'application#setting'
   post '/logout', to: 'sessions#destroy'
 
-  get '/profile', to: 'users#show'
+#   get '/profile', to: 'users#show'
+
   # get '/feed', to: 'users#show'
+
+  get '/feed', to: 'users#show'
+  get '/trending', to: 'hashtags#index'
+
   get '/settings', to: 'application#settings'
 
 
-  resources :hashtags
+  resources :hashtags, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :comments
   resources :posts
 

@@ -1,17 +1,18 @@
 <h2><%= @user.name %>'s Posts:</h2>
 <ul>
     <% @user.posts.each do |post| %>
-<li><img src="<%= image_tag(@user.image) %>" alt="mane" width="500" height="600">
-<% if post.user %><%= link_to(post.user_name, user_path(post.user)) %><% end %><br/>
-
-    <%= link_to(post.content, post_path(post)) %>
-<% if post.image %><%= link_to(image_tag(post.image), post_path(post)) %><% end %>
-<% if post.emoticon %><%= post.emoticon_image %><% end %>
-<!-- <% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %> -->
-</li>
+        <li>
+            <img src=<%= image_tag(@user.image) %> alt="Mane's Profile Photo" style="width:75px;height=:75;">
+            <% if post.user %><%= link_to(post.user_name, user_path(post.user)) %><% end %><br/>
+            <%= link_to(post.content, post_path(post)) %>
+            <% if post.image %><%= link_to(image_tag(post.image), post_path(post)) %><% end %>
+            <% if post.emoticon %><%= post.emoticon_image %><% end %>
+            <!-- <% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %> -->
+        </li>
     <% end %>
 </ul>
 
+<!-- pagination for posts
 <nav aria-label="post display pages">
   <ul class="pagination justify-content-center" style="margin:20px 0">
     <li class="page-item">
@@ -21,7 +22,6 @@
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
@@ -29,3 +29,4 @@
     </li>
   </ul>
 </nav>
+-->
