@@ -1,7 +1,7 @@
 <h2><%= @user.name %>'s Posts:</h2>
 <ul>
     <% @user.posts.each do |post| %>
-<li><img src="<%= image_tag(@user.image) %>" alt="mane" width="500" height="600">
+<!-- go to post_info -->
 <% if post.user %><%= link_to(post.user_name, user_path(post.user)) %><% end %><br/>
 
     <%= link_to(post.content, post_path(post)) %>

@@ -3,7 +3,7 @@
 <ul>
 <% @users.each do |user| %>
 <li>
-<%= user.name %>
+<% if user == @user %><%= link_to(user.name, user_path(user)) %><% else %><%= link_to(user.name, foreign_path(user)) %><% end %>
 <%= image_tag(user.image) %>
 
 <% end %>
