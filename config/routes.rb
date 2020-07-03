@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
   get '/feed', to: 'users#show'
+  get '/trending', to: 'hashtags#index'
   get '/settings', to: 'application#settings'
 
 
