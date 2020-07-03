@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
         # if params[:post][:image]
         #  image = Cloudinary::Uploader.upload(post_params[:image])
         #  post = Post.create(user_id: post_params[:user_id], content: post_params[:content], 

@@ -20,9 +20,7 @@
     <%= f.file_field :image %>
 <br>
 
-    <%= f.label :hashtag %> 
-    <%= f.text_area :hashtag, placeholder: "Must start with #" %>
-
+    
 <br/>
     <input type="hidden" name="post[user_id]" value="<%= @user.id %>">
     <%= f.submit class:"btn btn-primary"%>

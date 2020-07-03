@@ -1,6 +1,6 @@
 <%= render 'user_show1' %>
 
-<%= form_tag ({controller: 'follows', method: 'put', action: 'update'}) do %>
+<%= form_tag ({controller: 'follows', method: 'patch', action: 'update'}) do %>
     <input type='submit' value="Follow" class="btn btn-primary">
 <% end %>
 

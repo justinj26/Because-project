@@ -9,7 +9,7 @@ i<% if flash[:errors] %>
 <ul>
 <!-- look in post info -->
 
-    <li><% if @post.user == @user %><%= link_to(@post.user_name, user_path(@post.user)) %><% else %><%= link_to(@post.user_name, profile_path(@post.user))%><% end %></li><br/>
+    <li><% if @post.user == @user %><%= link_to(@post.user_name, user_path(@post.user)) %><% else %><%= link_to(@post.user_name, foreign_path(@post.user))%><% end %></li><br/>
     <li><%= @post.content %></li>       <%= @post.post_age %>
     <li><% if @post.image %><%= image_tag(@post.image) %><% end %></li>
     <li><% if @post.emoticon %><%= @post.emoticon_image %><% end %></li>
@@ -18,10 +18,10 @@ i<% if flash[:errors] %>
     <% if @post.user == @user %>
         <% link_to(image_tag(@post.user_image), user_path(@post.user)) %>
     <% else %>
-        <%= link_to( image_tag(@post.user_image), profile_path(@post.user))%>
+        <%= link_to( image_tag(@post.user_image), foreign_path(@post.user))%>
     <% end %>
 <% end %> 
-<li><% if @post.user == @user %><%= link_to(@post.user_name, user_path(@post.user)) %><% else %><%= link_to(@post.user_name, profile_path(@post.user))%><% end %></li><br/>
+<li><% if @post.user == @user %><%= link_to(@post.user_name, user_path(@post.user)) %><% else %><%= link_to(@post.user_name, foreign_path(@post.user))%><% end %></li><br/>
 <li><%= @post.content %></li>    <%= @post.post_age %>
 <li><% if @post.image %><%= image_tag(@post.image) %><% end %></li>
 <li><% if @post.emoticon %><%= @post.emoticon_image %><% end %></li>
@@ -45,7 +45,7 @@ i<% if flash[:errors] %>
 <% @post.comments.each do |comment| %><br/>
     <li>
         <% if comment.user_image %><%= image_tag(comment.user_image) %><% end %>   <%= comment.comment_age %>
-        <% if comment.user == @user %><%= link_to(comment.user_name, user_path(comment.user)) %><% else %><%= link_to(comment.user_name, profile_path(comment.user))%><% end %>
+        <% if comment.user == @user %><%= link_to(comment.user_name, user_path(comment.user)) %><% else %><%= link_to(comment.user_name, foreign_path(comment.user))%><% end %>
     </li>
     <%= comment.message %>
 
@@ -59,8 +59,8 @@ i<% if flash[:errors] %>
 
     Replies:
         <% comment.replies.each do |reply| %></p>
-            <% if reply.user == @user %><%= link_to(reply.user_name, user_path(reply.user)) %><% else %><%= link_to(reply.user_name, profile_path(reply.user))%><% end %>    <%= reply.reply_age %>
-            <% if reply.user == @user %><% link_to(image_tag(reply.user_image), user_path(reply.user)) %><% else %><%= link_to( image_tag(reply.user_image), profile_path(reply.user))%><% end %>
+            <% if reply.user == @user %><%= link_to(reply.user_name, user_path(reply.user)) %><% else %><%= link_to(reply.user_name, foreign_path(reply.user))%><% end %>    <%= reply.reply_age %>
+            <% if reply.user == @user %><% link_to(image_tag(reply.user_image), user_path(reply.user)) %><% else %><%= link_to( image_tag(reply.user_image), foreign_path(reply.user))%><% end %>
             <br/>
             <%= reply.content %>
         <% end %><br/>
