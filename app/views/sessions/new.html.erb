@@ -1,12 +1,14 @@
-<h1>Login</h1>
+<div class = "center_by_text">
+  <h1>Login</h1>
 
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <label>Username</label>
-  <input name=username>
-<br/>
-  <label>Password</label>
-  <input type="password" name="password">
-<br/>
-  <!-- <input type=submit value='login' class="btn btn-primary"> -->
-  <%= button_to "Login", login_path, method: :get, class: "btn btn-primary"%>
-<% end %>
+  <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+    <label>Username</label>
+    <input name=username>
+  <br/>
+    <label>Password</label>
+    <input type="password" name="password">
+  <br/>
+    <!-- <input type=submit value='login' class="btn btn-primary"> -->
+    <%= button_to "Login", login_path, method: :get, class: "btn btn-primary"%>
+  <% end %>
+</div>

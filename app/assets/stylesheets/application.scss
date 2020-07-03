@@ -14,3 +14,12 @@
 
  @import "bootstrap";
  @import "rails_bootstrap_forms";
+
+ .center_by_text {
+    padding: 70px 100px;
+    text-align: center;
+  }
+  .center {
+    margin: auto;
+    width: 75%;
+  }
