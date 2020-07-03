@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     end
 
     def create
-        # byebug
+        byebug
         # if params[:post][:image]
         #  image = Cloudinary::Uploader.upload(post_params[:image])
         #  post = Post.create(user_id: post_params[:user_id], content: post_params[:content], 
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
         # post = Post.create(user_id: post_params[:user_id], content: post_params[:content],
         #  emoticon_id: post_params[:emoticon_id])
         # end
+
         if params[:post][:image]
             @post = Post.new(post_params)
             if @post.valid?
@@ -54,6 +55,11 @@ class PostsController < ApplicationController
                 redirect_to new_post_path
             end
         end
+
+        
+         post = Post.create(post_params)
+        
+
         # byebug
     
 
