@@ -3,10 +3,12 @@ class Reply < ApplicationRecord
     belongs_to :post
     belongs_to :user
 
+ 
     validates :content, presence: true, if: :because?, unless -> { content.include?('?')}
     validates :content, length: { minimum: 250 }, unless: -> { content.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."
 
      def because?
+
         self.content.include?('because') || self.content.include?('reason') || self.content.include?('why') || self.content.include?("Because") || self.content.include?("Reason") || self.content.include?('Why')
     end
 
