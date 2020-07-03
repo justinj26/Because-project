@@ -20,6 +20,10 @@ class User < ApplicationRecord
     
     has_secure_password
 
+    def edit
+        @user = User.find_by(params[:id])
+    end
+
     # calculates the account age of the user
     def account_age
         # gives the date account was created
