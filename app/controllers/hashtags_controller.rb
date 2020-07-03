@@ -18,10 +18,10 @@ class HashtagsController < ApplicationController
         @hashtag = Hashtag.new(name: params[:name])
         if @hashtag.valid?
             @hashtag.save
-            redirect_to post_path
+            redirect_to user_path(@user)
         else
             flash[:errors] = @hashtag.errors.full_messages
-            hashtag_errors = flash[:errors]
+            # hashtag_errors = flash[:errors]
             redirect_to new_post_path
         end
     end

@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     # once you delete your account, redirects you to create a new one
         # or should it redirect you to the home page of the main app?
     def destroy
-        @user.delete
+        @user.destroy 
         redirect_to root_path
     end
 

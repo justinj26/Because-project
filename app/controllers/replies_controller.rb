@@ -9,7 +9,7 @@ class RepliesController < ApplicationController
             redirect_to post_path(reply_params[:post_id])
         else
             flash[:errors] = @reply.errors.full_messages
-            reply_messages = flash[:errors]
+            # reply_messages = flash[:errors]
             redirect_to comment_path
         end
     end

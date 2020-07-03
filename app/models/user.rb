@@ -13,11 +13,16 @@ class User < ApplicationRecord
     # ActiveStorage 
     has_one_attached :image 
 
-    # validations
+    # # validations
     validates :username, presence: true, uniqueness: {case_sensitive: true, message: "username must be unique, this one is taken." }
-    # validates :name, presence: true
+    validates :name, presence: true
+    # # validates :image, presence: true
     
     has_secure_password
+
+    def edit
+        @user = User.find_by(params[:id])
+    end
 
     # calculates the account age of the user
     def account_age
