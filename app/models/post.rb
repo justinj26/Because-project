@@ -65,6 +65,17 @@ class Post < ApplicationRecord
         self.emoticon.image 
     end
 
+    def hashtags=(hashtags)
+        hashtags.each do |hashtag|
+            @hashtag = Hashtag.find_or_create_by(hashtag)
+            self.hashtags << @hashtag
+        end
+    end
+
+    def hashtags
+        self.hashtags 
+    end
+
     # def home_user?
     #     self.user == current_user
     # end

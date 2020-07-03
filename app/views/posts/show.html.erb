@@ -1,6 +1,6 @@
-i<% if reply_errors %>
+i<% if flash[:errors] %>
     <ul>
-        <% reply_errors.each do |e| %>
+        <% flash[:errors].each do |e| %>
             <li style="color: red"><%= e %>%</li>
         <% end %>
     </ul>
@@ -34,8 +34,6 @@ i<% if reply_errors %>
     <%= form_with model: @comment do |f| %>
         <%= f.label :comment %>
         <%= f.text_area :message %><br/>
-        <%= f.label :hashtag %>
-        <%= f.text_field :hashtag %>
         <input type=hidden name=comment[post_id] value='<%= @post.id %>'>
         <input type=hidden name=comment[user_id] value='<%= @user.id %>'>
 

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
         # end
     end
 
-    def settings
+    def setting
     end
 
     # def current_user
