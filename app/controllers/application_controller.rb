@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
         # end
     end
 
+    def settings
+    end
+
     # def current_user
     #     session[:username]
     # end

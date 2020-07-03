@@ -1,0 +1,13 @@
+<div>
+    <h1>Settings</h1>
+    <br>
+
+    <%= form_tag ({controller:'sessions', method:'destroy', action:'delete'}) do %>
+        <input type="submit" value="Log Out" class="btn btn-primary">
+    <% end %>
+    <br>
+
+    <%= form_tag ({controller:'users', method:'destroy', action:'delete'}) do %>
+        <input type="submit" value="Delete Account" class="btn btn-danger">
+    <% end %>
+</div>

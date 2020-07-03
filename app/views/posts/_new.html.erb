@@ -1,10 +1,28 @@
-<h1>Create New Post </h1>
+<% if hashtag_errors %>
+    <ul>
+        <% hashtag_errors.each do |e| %>
+            <li style="color: red"><%= e %>%</li>
+        <% end %>
+    </ul>
+<% end %>
+
+<% if post_errors %>
+    <ul>
+        <% post_errors.each do |e| %>
+            <li style="color: red"><%= e %>%</li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h1>Create New Post</h1>
 
 <%= form_for @post do |f| %>
     <%= f.label :content %> 
     <%= f.text_area :content, placeholder: 'Minimum 250 characters, and includes "because", "reason", or "why", or has a ?' %>
 <br>
+
 <br>
+
     <%= f.label :emoticon %>
     <%= f.collection_select :emoticon_id, @emoticons, :id, :image %>
  
@@ -13,6 +31,6 @@
     <%= f.file_field :image %>
 <br>
     <input type="hidden" name="post[user_id]" value="<%= @user.id %>">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary"%>
     
 <% end %>
