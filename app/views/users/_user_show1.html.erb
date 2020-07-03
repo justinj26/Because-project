@@ -2,9 +2,16 @@
 
 <p>
     <!-- Display Image -->
+
     Username: <%= @user.username %><br>
     Bio: <%= @user.bio %><br>
     <%= @user.account_age %><br>
+
+    <% if @user.image %><%= image_tag(@user.image) %><% end %>
+    Username: <%= @user.username %>
+    Bio: <%= @user.bio %>
+    <%= @user.account_age %>
+
     Frequented Hashtags: 
         <!-- Each hashtag should link to hashtag show page -->
         <% @user.most_used_hashtags.each do |hashtag| %>

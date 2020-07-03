@@ -1,4 +1,21 @@
 <li><%= post.content %></li>
+
 <li><% if post.image %><%= post.image %><% end %></li>
 <li><% if post.emoticon %><%= post.emoticon.image %><% end %></li>
 <li><% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %></li>
+
+<li><% if post.image %><%= image_tag(post.image) %><% end %></li>
+<li><% if post.emoticon %><%= post.emoticon_image %><% end %></li>
+<li><% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %></li>
+
+
+<!-- <% if @post.user_image %>
+    <% if @post.user == @user %>
+        <% link_to(image_tag(@post.user_image), user_path(@post.user)) %>
+    <% else %>
+        <%= link_to( image_tag(@post.user_image), profile_path(@post.user))%>
+    <% end %>
+<% end %> --> 
+
+<% if @user.image %><%= link_to( image_tag(@user.image), user_path(@user)) %><% end %>
+

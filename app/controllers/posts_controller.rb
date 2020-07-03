@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     # probably should use slugs
 
     def show
+        # byebug
         @comment = Comment.new
         @reply = Reply.new 
 
@@ -22,11 +23,20 @@ class PostsController < ApplicationController
 
     def create
         # byebug
-        if params[:image]
-         image = Cloudinary::Uploader.upload(params[:image])
+        # if params[:post][:image]
+        #  image = Cloudinary::Uploader.upload(post_params[:image])
+        #  post = Post.create(user_id: post_params[:user_id], content: post_params[:content], 
+        #  emoticon_id: post_params[:emoticon_id], image: image)
+        # else 
+        # post = Post.create(user_id: post_params[:user_id], content: post_params[:content],
+        #  emoticon_id: post_params[:emoticon_id])
+        # end
+        if params[:post][:image]
+            post = Post.create(post_params)
+        else
+            post = Post.create(user_id: post_params[:user_id], content: post_params[:content], emoticon_id: post_params[:emoticon_id])
         end
-        post = Post.create(post_params)
-        byebug
+        # byebug
         current_user.posts << post 
         redirect_to user_path(current_user)
     end
