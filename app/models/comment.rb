@@ -4,13 +4,13 @@ class Comment < ApplicationRecord
     belongs_to :post
     belongs_to :user 
     has_many :replies 
+    
 
-<<<<<<< HEAD
-    # validations
-    validates :message, presence: true 
-    validates :message, length: { minimum: 250 }, unless: -> { message.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."
-    validates :message, inclusion: { in: %w(because reason why), unless: -> { message.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."
-=======
+#     # validations
+#     validates :message, presence: true 
+#     validates :message, length: { minimum: 250 }, unless: -> { message.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."
+#     validates :message, inclusion: { in: %w(because reason why), unless: -> { message.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."
+
     # validates :message, presence: true
     # validates :message, length: { minimum: 250 }, unless: -> { message.include?('?')}
     validates :message, presence: true, if: :because?, unless: -> { message.include?('?')} 
@@ -22,7 +22,8 @@ class Comment < ApplicationRecord
     def because?
         self.message.include?('because') || self.message.include?('reason') || self.message.include?('why') || self.message.include?("Because") || self.message.include?("Reason") || self.message.include?('Why')
     end
->>>>>>> master
+
+
 
 # fix
     def comment_age

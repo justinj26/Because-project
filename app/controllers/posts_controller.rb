@@ -31,7 +31,11 @@ class PostsController < ApplicationController
         # post = Post.create(user_id: post_params[:user_id], content: post_params[:content],
         #  emoticon_id: post_params[:emoticon_id])
         # end
+
         # if params[:post][:image]
+
+
+       
             @post = Post.new(post_params)
             if @post.valid?
                 @post.save
@@ -42,18 +46,25 @@ class PostsController < ApplicationController
                 post_errors = flash[:errors]
                 redirect_to new_post_path
             end
-        # else
-        #     @post = Post.new(user_id: post_params[:user_id], content: post_params[:content], emoticon_id: post_params[:emoticon_id])
-        #     if @post.valid?
-        #         @post.save
-        #         current_user.posts << @post 
-        #         redirect_to user_path(current_user)
-        #     else
-        #         flash[:errors] = @post.errors.full_messages
-        #         post_errors = flash[:errors]
-        #         redirect_to new_post_path
-        #     end
-        # end
+
+#         else
+#             @post = Post.new(user_id: post_params[:user_id], content: post_params[:content], emoticon_id: post_params[:emoticon_id])
+#             if @post.valid?
+#                 @post.save
+#                 current_user.posts << @post 
+#                 redirect_to user_path(current_user)
+#             else
+#                 flash[:errors] = @post.errors.full_messages
+#                 post_errors = flash[:errors]
+#                 redirect_to new_post_path
+#             end
+#         end
+
+        
+#          post = Post.create(post_params)
+        
+
+# >>>>>>> master
         # byebug
     
 

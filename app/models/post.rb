@@ -10,6 +10,19 @@ class Post < ApplicationRecord
     # ActiveStorage
     has_one_attached :image 
 
+
+
+    # validations
+#     validates :content, presence: true 
+#     validates :content, length: { minimum: 250 }, unless: -> { content.include?('?')}
+#     validates :content, inclusion: { in: %w(because reason why), unless: -> { content.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."
+    
+#     validates :image, presence: true
+#     # must be created with emoticon_id, but FK acts as validation
+
+    
+#     validates :content, presence: true, if: :because?, unless: -> { content.include?('?')} 
+
     # validations
     validates :content, presence: true, if: :because?, unless: -> { content.include?('?')} 
     validates :content, length: { minimum: 250 , unless: -> { content.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."}
@@ -21,6 +34,7 @@ class Post < ApplicationRecord
 
     
     
+
 
 
     def because?
