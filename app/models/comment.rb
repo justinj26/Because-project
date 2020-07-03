@@ -12,7 +12,7 @@ class Comment < ApplicationRecord
 #     validates :message, inclusion: { in: %w(because reason why), unless: -> { message.include?('?')}, message: "A post must contain either the word 'because', 'reason', or 'why'."
 
     # validates :message, presence: true
-    # validates :message, length: { minimum: 250 }, unless: -> { message.include?('?')}
+    # # validates :message, length: { minimum: 250 }, unless: -> { message.include?('?')}
     validates :message, presence: true, if: :because?, unless: -> { message.include?('?')} 
 
     validates :message, length: { minimum: 250 , unless: -> { message.include?('?')}, message: "A post must contain at least 250 characters, or include a question mark."}
