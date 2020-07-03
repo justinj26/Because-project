@@ -35,15 +35,9 @@ class PostsController < ApplicationController
         # if params[:post][:image]
 
 
-        hashtags = Hashtag.new(hashtag_params)
+        
             @post = Post.new(post_params)
             if @post.valid?
-                hashtags.each do |hashtag|
-                    if hashtag.valid?
-                        hashtag.save 
-                        @post.hashtags << hashtag  
-                    end
-                end
                 @post.save
                 current_user.posts << @post 
                 redirect_to user_path(current_user)
@@ -89,10 +83,6 @@ class PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(:content, :emoticon_id, :user_id, :image)
-    end
-
-    def hashtag_params
-        params.require(:post).permit(hashtags: [])
     end
 
 end
