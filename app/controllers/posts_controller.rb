@@ -35,7 +35,7 @@ class PostsController < ApplicationController
         # if params[:post][:image]
 
 
-       
+        
             @post = Post.new(post_params)
             if @post.valid?
                 @post.save

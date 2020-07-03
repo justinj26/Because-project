@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/followers', to: "follows#followers"
   get '/followees', to: "follows#followees"
 
-  resources :users
+  resources :users, only: [:index, :show, :edit, :create, :update]
+  delete '/users/:id', to: 'users#destroy', as: 'destroy_user'
   get '/profile_page/:id', to: 'users#foreign_show', as: 'profile'
 
   root "application#hello"
@@ -18,16 +19,20 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  get '/logout', to: 'application#settings'
+  get '/logout', to: 'application#setting'
   post '/logout', to: 'sessions#destroy'
 
-  get '/profile', to: 'users#show'
+#   get '/profile', to: 'users#show'
+
+  # get '/feed', to: 'users#show'
+
   get '/feed', to: 'users#show'
   get '/trending', to: 'hashtags#index'
+
   get '/settings', to: 'application#settings'
 
 
-  resources :hashtags
+  resources :hashtags, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :comments
   resources :posts
 
