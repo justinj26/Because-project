@@ -1,19 +1,10 @@
-<% if hashtag_errors %>
+<% if flash[:errors] %>
     <ul>
-        <% hashtag_errors.each do |e| %>
+        <% flash[:errors].each do |e| %>
             <li style="color: red"><%= e %>%</li>
         <% end %>
     </ul>
-<% end %>
-
-<% if post_errors %>
-    <ul>
-        <% post_errors.each do |e| %>
-            <li style="color: red"><%= e %>%</li>
-        <% end %>
-    </ul>
-<% end %>
-
+    <% end %>
 <h1>Create New Post</h1>
 
 <%= form_for @post do |f| %>
@@ -28,7 +19,17 @@
     <%= f.label :image %>
     <%= f.file_field :image %>
 <br>
+    <%= form_with model: @hashtag do |f| %>
+    <%= f.label :hashtag %> 
+    <%= f.text_area :hashtag, placeholder: "Must start with #" %>
+    <% end %>
+<br/>
     <input type="hidden" name="post[user_id]" value="<%= @user.id %>">
     <%= f.submit class:"btn btn-primary"%>
+
+<br/>
+
+
     
 <% end %>
+

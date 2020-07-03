@@ -29,7 +29,7 @@ i<% if reply_errors %>
 <br/>
 <%= button_to "Delete Post", posts_path, method: :get, class: "btn btn-outline-primary"%>
 
-<% if @user.image %><%= link_to( image_tag(@user.image), user_path(@user)) %><% end %>
+<% if @user.image %><%= link_to(image_tag(@user.image), user_path(@user)) %><% end %>
 <%= link_to(@user.name, user_path(@user)) %><br/>
     <%= form_with model: @comment do |f| %>
         <%= f.label :comment %>

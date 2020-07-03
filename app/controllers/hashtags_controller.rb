@@ -21,7 +21,7 @@ class HashtagsController < ApplicationController
             redirect_to post_path
         else
             flash[:errors] = @hashtag.errors.full_messages
-            hashtag_errors = flash[:errors]
+            # hashtag_errors = flash[:errors]
             redirect_to new_post_path
         end
     end

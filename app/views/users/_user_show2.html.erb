@@ -1,13 +1,14 @@
 <h2><%= @user.name %>'s Posts:</h2>
 <ul>
     <% @user.posts.each do |post| %>
+<li><img src="<%= image_tag(@user.image) %>" alt="mane" width="500" height="600">
+<% if post.user %><%= link_to(post.user_name, user_path(post.user)) %><% end %><br/>
 
-    <li><%= link_to(post.content, post_path(post)) %></li>
-
-<li><% if post.image %><%= image_tag(post.image) %><% end %></li>
-<li><% if post.emoticon %><%= post.emoticon.image %><% end %></li>
-<li><% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %></li>
-
+    <%= link_to(post.content, post_path(post)) %>
+<% if post.image %><%= link_to(image_tag(post.image), post_path(post)) %><% end %>
+<% if post.emoticon %><%= post.emoticon_image %><% end %>
+<!-- <% if post.user %><%= link_to(post.user.name, user_path(post.user)) %><% end %> -->
+</li>
     <% end %>
 </ul>
 
