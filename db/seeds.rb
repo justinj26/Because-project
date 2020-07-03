@@ -8,11 +8,6 @@
 #   {username: "frozone", name: "Flame_on", bio: "Ruff, ruff, boi!", password_digest: "$2a$10$/SKvFVHpeon7CZHjJHZgH.HKq.s9Iu3kViyLKuxppglIL0Luhf6hi"},
 #   {username: "tt99", name: "Telka", bio: "Just a girl on a swing!", password_digest: "$2a$10$aRIaoKfbvCaFViD3KN6uCupCqMRCpg8EMcKlDUqjIxRNcqlqPATam"}
 # ])
-# Comment.create!([
-#   {message: "?Oh my gosh, did you see what was said, that was so thoughtful!", user_id: 1, post_id: 3},
-#   {message: "?I really like how they structured out that argument, so organize.", user_id: 2, post_id: 2},
-#   {message: "?I think the reason for that is to find a closer meaning in life", user_id: 3, post_id: 1}
-# ])
 # Emoticon.create!([
 #   {image: "(ɔ◔‿◔)ɔ ♥", name: "love"},
 #   {image: "┻━┻ ︵ヽ(`▭´)ﾉ︵﻿ ┻━┻", name: "flipping table"},
@@ -50,11 +45,6 @@
 #   {name: "Because_whynot"},
 #   {name: "Because_yes"}
 # ])
-# HashPost.create!([
-#   {post_id: 1, hashtag_id: 3},
-#   {post_id: 2, hashtag_id: 2},
-#   {post_id: 3, hashtag_id: 1}
-# ])
 # Post.create!([
 #   {content: "No one saves us but ourselves. No one can and no one may. We ourselves must walk the path.\r\nThe mind is everything. What you think you become.\r\nDo not dwell in the past, do not dream of the future, concentrate the mind on the present moment.\r\nThree things cannot be long hidden: the sun, the moon, and the truth.\r\nYou only lose what you cling to. Because that is the way young padowan.", emoticon_id: 3, user_id: 1},
 #   {content: "No one saves us but ourselves. No one can and no one may. We ourselves must walk the path.\r\nThe mind is everything. What you think you become.\r\nDo not dwell in the past, do not dream of the future, concentrate the mind on the present moment.\r\nThree things cannot be long hidden: the sun, the moon, and the truth.\r\nYou only lose what you cling to. Because that is the way.", emoticon_id: 3, user_id: 1},
@@ -67,24 +57,15 @@
 #   {content: "Do you dare travel down the path?", emoticon_id: 22, user_id: 7},
 #   {content: "And if I told you it led here?", emoticon_id: 1, user_id: 7}
 # ])
-# ActiveStorage::Attachment.create!([
-#   {name: "image", record_type: "User", record_id: 1, blob_id: 2},
-#   {name: "image", record_type: "Post", record_id: 1, blob_id: 3},
-#   {name: "image", record_type: "Post", record_id: 2, blob_id: 4},
-#   {name: "image", record_type: "User", record_id: 2, blob_id: 5},
-#   {name: "image", record_type: "Post", record_id: 3, blob_id: 6},
-#   {name: "image", record_type: "User", record_id: 3, blob_id: 7},
-#   {name: "image", record_type: "Post", record_id: 4, blob_id: 8},
-#   {name: "image", record_type: "User", record_id: 4, blob_id: 9},
-#   {name: "image", record_type: "Post", record_id: 5, blob_id: 10},
-#   {name: "image", record_type: "User", record_id: 5, blob_id: 11},
-#   {name: "image", record_type: "Post", record_id: 6, blob_id: 12},
-#   {name: "image", record_type: "User", record_id: 6, blob_id: 13},
-#   {name: "image", record_type: "Post", record_id: 7, blob_id: 14},
-#   {name: "image", record_type: "User", record_id: 7, blob_id: 15},
-#   {name: "image", record_type: "Post", record_id: 8, blob_id: 16},
-#   {name: "image", record_type: "Post", record_id: 9, blob_id: 17},
-#   {name: "image", record_type: "Post", record_id: 10, blob_id: 18}
+# HashPost.create!([
+#   {post_id: 1, hashtag_id: 3},
+#   {post_id: 2, hashtag_id: 2},
+#   {post_id: 3, hashtag_id: 1}
+# ])
+# Comment.create!([
+#   {message: "?Oh my gosh, did you see what was said, that was so thoughtful!", user_id: 1, post_id: 3},
+#   {message: "?I really like how they structured out that argument, so organize.", user_id: 2, post_id: 2},
+#   {message: "?I think the reason for that is to find a closer meaning in life", user_id: 3, post_id: 1}
 # ])
 # ActiveStorage::Blob.create!([
 #   {key: "u7eudhws5n7vieovl008mwjciase", filename: "namaste_shi_fu.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 7602, checksum: "iWkHVZDG6tNYCm6cI6DbZA=="},
@@ -105,5 +86,23 @@
 #   {key: "1i5yckn3seplbt3n02kez707nkle", filename: "a_path.jpg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 96397, checksum: "U/Pdm3hzjcxlqn8KdhyLJw=="},
 #   {key: "30oln21mkfqz7xtxadwxeiiju7tl", filename: "log_cabin.jpeg", content_type: "image/jpeg", metadata: {"identified"=>true, "analyzed"=>true}, byte_size: 420486, checksum: "0oAn6wHxAfGpd8VV1l0zaA=="}
 # ])
-
+# ActiveStorage::Attachment.create!([
+#   {name: "image", record_type: "User", record_id: 1, blob_id: 1},
+#   {name: "image", record_type: "Post", record_id: 1, blob_id: 2},
+#   {name: "image", record_type: "Post", record_id: 2, blob_id: 3},
+#   {name: "image", record_type: "User", record_id: 2, blob_id: 4},
+#   {name: "image", record_type: "Post", record_id: 3, blob_id: 5},
+#   {name: "image", record_type: "User", record_id: 3, blob_id: 6},
+#   {name: "image", record_type: "Post", record_id: 4, blob_id: 7},
+#   {name: "image", record_type: "User", record_id: 4, blob_id: 8},
+#   {name: "image", record_type: "Post", record_id: 5, blob_id: 9},
+#   {name: "image", record_type: "User", record_id: 5, blob_id: 10},
+#   {name: "image", record_type: "Post", record_id: 6, blob_id: 11},
+#   {name: "image", record_type: "User", record_id: 6, blob_id: 12},
+#   {name: "image", record_type: "Post", record_id: 7, blob_id: 13},
+#   {name: "image", record_type: "User", record_id: 7, blob_id: 14},
+#   {name: "image", record_type: "Post", record_id: 8, blob_id: 15},
+#   {name: "image", record_type: "Post", record_id: 9, blob_id: 16},
+#   {name: "image", record_type: "Post", record_id: 10, blob_id: 17}
+# ])
   
