@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
             # session[:username] = params[:username]
             redirect_to posts_path 
         else 
-            flash[:errors] = @user.errors.full_messages
+            # flash[:errors] = @user.errors.full_messages
             redirect_to controller: 'sessions', action: 'new'
         end
     # end
