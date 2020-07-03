@@ -1,12 +1,12 @@
 <ul>
-<% if @post.user_image %><% if @post.user == @user %><% link_to(@post.user_image, user_path(@post.user)) %><% else %><%= link_to(@post.user_image, profile_path(@post.user))%><% end %><% end %>
+<!-- look in post info -->
 <li><% if @post.user == @user %><%= link_to(@post.user_name, user_path(@post.user)) %><% else %><%= link_to(@post.user_name, profile_path(@post.user))%><% end %></li><br/>
-<li><%= @post.content %></li>
-<li><% if @post.image %><%= @post.image %><% end %></li>
+<li><%= @post.content %></li>    <%= @post.post_age %>
+<li><% if @post.image %><%= image_tag(@post.image) %><% end %></li>
 <li><% if @post.emoticon %><%= @post.emoticon_image %><% end %></li>
 <br/>
 
-<% if @user.image %><%= link_to(@user.image, user_path(@user)) %><% end %>
+<!-- look in post info -->
 <%= link_to(@user.name, user_path(@user)) %><br/>
 <%= form_with model: @comment do |f| %>
 <%= f.label :comment %>
@@ -22,7 +22,7 @@
 <p>Comments:<p>
 <% @post.comments.each do |comment| %>
 <br/>
-<li><% if comment.user_image %><%= comment.user_image %><% end %>
+<li><% if comment.user_image %><%= image_tag(comment.user_image) %><% end %>   <%= comment.comment_age %>
 <% if comment.user == @user %><%= link_to(comment.user_name, user_path(comment.user)) %><% else %><%= link_to(comment.user_name, profile_path(comment.user))%><% end %>
 </li>
 <%= comment.message %>
@@ -37,8 +37,8 @@
     <% end %>
     Replies:
     <% comment.replies.each do |reply| %></p>
-    <% if reply.user == @user %><%= link_to(reply.user_name, user_path(reply.user)) %><% else %><%= link_to(reply.user_name, profile_path(reply.user))%><% end %>
-    <% if reply.user == @user %><% link_to(reply.user_image, user_path(reply.user)) %><% else %><%= link_to(reply.user_image, profile_path(reply.user))%><% end %>
+    <% if reply.user == @user %><%= link_to(reply.user_name, user_path(reply.user)) %><% else %><%= link_to(reply.user_name, profile_path(reply.user))%><% end %>    <%= reply.reply_age %>
+    <% if reply.user == @user %><% link_to(image_tag(reply.user_image), user_path(reply.user)) %><% else %><%= link_to( image_tag(reply.user_image), profile_path(reply.user))%><% end %>
     <br/>
     <%= reply.content %>
     <% end %><br/>

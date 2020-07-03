@@ -49,14 +49,14 @@ u2 = User.create(username: 'm3do', name: "megasho", password_digest: BCrypt::Pas
 u3 = User.create(username: 'pb97', name: "Prinner", password_digest: BCrypt::Password.create('Your_Password'))
 u4 = User.create(username: 'ds09', name: 'Daisy', password_digest: BCrypt::Password.create('Your_Password'))
 
-post1 = Post.create(content: "Wow, this is my first post", emoticon_id: Emoticon.first.id, user_id: User.first.id)
-post2 = Post.create(content: "Wow, this is my second post", emoticon_id: Emoticon.second.id, user_id: User.first.id)
-post3 = Post.create(content: "Wow, this is my third post", emoticon_id: Emoticon.last.id, user_id: User.third.id)
-post4 = Post.create(content: "Wow, this is my fourt post", emoticon_id: Emoticon.third.id, user_id: User.last.id)
-
-comment1 = Comment.create(message: "Oh my gosh, did you see what was said, that was so thoughtful!", post_id: Post.third.id, user_id: User.first.id)
-comment2 = Comment.create(message: "I really like how they structured out that argument, so organize.", post_id: Post.second.id, user_id: User.second.id)
-comment3 = Comment.create(message: "I think the reason for that is to find a closer meaning in life", post_id: Post.first.id, user_id: User.third.id)
+post1 = Post.create(content: "Wow, this is my first post?", emoticon_id: Emoticon.first.id, user_id: User.first.id)
+post2 = Post.create(content: "Wow, this is my second post?", emoticon_id: Emoticon.second.id, user_id: User.first.id)
+post3 = Post.create(content: "Wow, this is my third post?", emoticon_id: Emoticon.last.id, user_id: User.third.id)
+post4 = Post.create(content: "Wow, this is my fourt post?", emoticon_id: Emoticon.third.id, user_id: User.last.id)
+# byebug
+comment1 = Comment.create(message: "?Oh my gosh, did you see what was said, that was so thoughtful!", post_id: Post.third.id, user_id: User.first.id)
+comment2 = Comment.create(message: "?I really like how they structured out that argument, so organize.", post_id: Post.second.id, user_id: User.second.id)
+comment3 = Comment.create(message: "?I think the reason for that is to find a closer meaning in life", post_id: Post.first.id, user_id: User.third.id)
 
 h1 = Hashtag.create(name: "Because_ilikeit")
 h2 = Hashtag.create(name: "Because_whynot")

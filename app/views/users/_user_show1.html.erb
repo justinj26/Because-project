@@ -2,6 +2,7 @@
 
 <p>
     <!-- Display Image -->
+    <% if @user.image %><%= image_tag(@user.image) %><% end %>
     Username: <%= @user.username %>
     Bio: <%= @user.bio %>
     <%= @user.account_age %>
